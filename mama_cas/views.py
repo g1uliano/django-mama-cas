@@ -82,6 +82,14 @@ class LoginView(CsrfProtectMixin, NeverCacheMixin, FormView):
         service = request.GET.get('service')
         renew = to_bool(request.GET.get('renew'))
         gateway = to_bool(request.GET.get('gateway'))
+        
+        #CUSTOM VIEWS PER SERVICE
+        d = getattr(settings, 'MAMA_CAS_CUSTOM_VIEWS', ())
+        if (service):
+            for key, value in d.items():
+                if (key in service):
+                    self.template_name = value
+                    break
 
         if renew:
             logger.debug("Renew request received by credential requestor")
