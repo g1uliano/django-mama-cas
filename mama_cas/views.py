@@ -64,6 +64,22 @@ class LoginView(CsrfProtectMixin, NeverCacheMixin, FormView):
         kwargs['request'] = self.request
         return kwargs
 
+    def post(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        service = request.GET.get('service')
+        d = getattr(settings, 'MAMA_CAS_CUSTOM_VIEWS', ())
+        if (service):
+            for key, value in d.items():
+                if (key in service):
+                    self.template_name = value
+                    break
+
+        if form.is_valid():
+            return self.form_valid(form, **kwargs)
+        else:
+            return self.form_invalid(form, **kwargs)
+
     def get(self, request, *args, **kwargs):
         """
         (2.1) As a credential requestor, /login accepts three optional
