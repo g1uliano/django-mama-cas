@@ -69,7 +69,7 @@ class LoginView(CsrfProtectMixin, NeverCacheMixin, FormView):
         form = self.get_form(form_class)
         service = request.GET.get('service')
         d = getattr(settings, 'MAMA_CAS_CUSTOM_VIEWS', ())
-        if (service):
+        if (service and d):
             for key, value in d.items():
                 if (key in service):
                     self.template_name = value
@@ -101,7 +101,7 @@ class LoginView(CsrfProtectMixin, NeverCacheMixin, FormView):
         
         #CUSTOM VIEWS PER SERVICE
         d = getattr(settings, 'MAMA_CAS_CUSTOM_VIEWS', ())
-        if (service):
+        if (service and d):
             for key, value in d.items():
                 if (key in service):
                     self.template_name = value
