@@ -1,4 +1,15 @@
-MamaCAS
+MamaCAS-with-custom-views forked by g1uliano
+
+THIS IS A EXPERIMENTAL VERSION
+
+New Feature:
+
+   MAMA_CAS_CUSTOM_VIEWS = {  # allow custom views
+       'glpi': 'mama_cas/glpi.html',
+      'terceirizadas': 'mama_cas/glpi.html',
+   }
+
+
 =======
 
 .. image:: https://travis-ci.org/jbittel/django-mama-cas.svg?branch=master
