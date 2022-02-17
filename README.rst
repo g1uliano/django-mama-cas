@@ -1,21 +1,16 @@
-MamaCAS-with-custom-views forked by g1uliano
+MamaCAS with MAMA_CAS_CUSTOM_VIEWS (forked by g1uliano)
+-------
 
-THIS IS A EXPERIMENTAL VERSION
 
 New Feature:
 
-   MAMA_CAS_CUSTOM_VIEWS = {  # allow custom views
+   ´MAMA_CAS_CUSTOM_VIEWS = {  # allow custom views
        'glpi': 'mama_cas/glpi.html',
       'terceirizadas': 'mama_cas/glpi.html',
    }
-
+   
 
 =======
-
-.. image:: https://travis-ci.org/jbittel/django-mama-cas.svg?branch=master
-    :target: https://travis-ci.org/jbittel/django-mama-cas
-.. image:: https://badge.fury.io/py/django-mama-cas.svg
-    :target: https://badge.fury.io/py/django-mama-cas
 
 MamaCAS is a Django `Central Authentication Service (CAS)`_ single sign-on
 and single logout server. It implements the CAS 1.0, 2.0 and 3.0 protocols,
